@@ -1,0 +1,130 @@
+title: "Traits"
+description: "Traits"
+# Variables can be referenced across the project.yml using ${vars.var_name}
+vars:
+  name: "traits"
+  lang: "en"
+  version: "0.0.0"
+# Change this variable if you want to use the GPU (gpu_id: 0)
+  gpu_id: 0
+  # Vectors model for train-with-vectors
+  vectors_model: "en_core_web_trf"
+  config: "config.cfg"
+  file:
+    species_list: "cindys-species.csv"
+    # species_list: "test.csv"
+    anatomical_parts: "anatomical-parts.yml"
+    trait_patterns: "traits.jsonl"
+    anatomy_patterns: "anatomy.jsonl"
+    descriptions: "descriptions.csv"
+    preprocessed: "preprocessed-descriptions.csv"
+    traits_output_directory: "traits"
+    numeric:
+      train: "numeric_train.spacy"
+      test: "numeric_test.spacy"      
+    # numeric: "train_numeric.spacy"
+
+
+# These are the directories that the project needs. The project CLI will make
+# sure that they always exist.
+directories: ["assets", "corpus", "configs", "scripts"]
+
+# Assets available in the directory.
+assets:
+  - dest: "assets/${vars.file.species_list}"
+    description: "Peatland species CSV"
+
+workflows:
+  collect:
+    - download
+    - trait-patterns
+    - anatomy
+    - numeric
+  prepare:
+    - descriptions
+    - preprocess
+  pipeline:
+   - descriptions
+   - preprocess
+   - traits
+
+commands:
+  - name: "download"
+    help: "Download spaCy model"
+    script:
+      - "python -m spacy download ${vars.vectors_model}"
+
+  - name: "trait-patterns"
+    help: "Convert the traits data to spaCy's jsonl format"
+    script:
+      - "python scripts/trait_patterns.py corpus/${vars.file.trait_patterns}"      
+    outputs:
+      - "corpus/${vars.file.trait_patterns}"
+
+  - name: anatomy
+    help: "Convert anatomy to jsonl patterns"
+    script:
+      - "python scripts/anatomy.py assets/${vars.file.anatomical_parts} corpus/${vars.file.anatomy_patterns}" 
+    deps:
+      - "assets/${vars.file.anatomical_parts}"           
+    outputs:
+      - "corpus/${vars.file.anatomy_patterns}"      
+  
+  - name: descriptions
+    help: "Download descriptions"
+    script:
+      - "python scripts/descriptions.py assets/${vars.file.species_list} corpus/${vars.file.descriptions}" 
+    deps:
+      - "assets/${vars.file.species_list}"           
+    outputs:
+      - "corpus/${vars.file.descriptions}"
+
+  - name: preprocess
+    help: "Preprocess"
+    script:
+      - "python scripts/preprocess.py corpus/${vars.file.descriptions} corpus/${vars.file.preprocessed}" 
+    deps:
+      - "corpus/${vars.file.descriptions}"          
+    outputs:
+      - "corpus/${vars.file.preprocessed}"
+
+  - name: numeric
+    help: "Generate training data"
+    script:
+      - "python scripts/numeric.py corpus/${vars.file.preprocessed} corpus/${vars.file.numeric.train} corpus/${vars.file.numeric.test}" 
+    deps:
+      - "corpus/${vars.file.preprocessed}"          
+    # outputs:
+    #   - "corpus/${vars.file.numeric}"      
+
+  - name: traits
+    help: "Run NER traits extraction"
+    script:
+      - "python scripts/traits.py corpus/${vars.file.preprocessed} corpus/${vars.file.traits_output_directory}" 
+    deps:
+      - "corpus/${vars.file.preprocessed}"          
+    outputs:
+      - "corpus/${vars.file.traits_output_directory}/*" 
+
+  - name: train
+    help: "Train a new Entity Linking component"
+    script:
+      - "python -m spacy train configs/${vars.config} --output training --paths.train corpus/${vars.file.numeric.train} --paths.dev corpus/${vars.file.numeric.test} --gpu-id ${vars.gpu_id}"
+    deps:
+      - "corpus/${vars.file.numeric.train}"
+      - "corpus/${vars.file.numeric.test}"           
+
+  # - name: evaluate
+  #   help: "Evaluate on the test data and save the metrics"
+  #   script:
+  #     - >-
+  #       python -m spacy evaluate 
+  #       ./training/${vars.treebank}/model-best 
+  #       ./corpus/${vars.treebank}/test.spacy 
+  #       --output ./metrics/${vars.treebank}.json 
+  #       --gpu-id ${vars.gpu}
+  #   deps:
+  #     - "training/${vars.treebank}/model-best"
+  #     - "corpus/${vars.treebank}/test.spacy"
+  #   outputs:
+  #     - "metrics/${vars.treebank}.json"  

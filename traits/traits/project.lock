@@ -1,0 +1,102 @@
+download:
+  cmd: python -m spacy run download
+  script:
+    - python -m spacy download en_core_web_sm
+  deps: []
+  outs: []
+  spacy_version: 3.1.3
+  spacy_git_version: 8bda39f08
+traits:
+  cmd: python -m spacy run traits
+  script:
+    - python scripts/traits.py corpus/preprocessed-descriptions.csv corpus/traits
+  deps:
+    - path: corpus/preprocessed-descriptions.csv
+      md5: ac6ee58cb9543db68a37cd7c3672accb
+  outs:
+    - path: corpus/traits/*
+      md5: null
+  spacy_version: 3.3.0
+  spacy_git_version: 497a708c7
+descriptions:
+  cmd: python -m spacy run descriptions
+  script:
+    - python scripts/descriptions.py assets/cindys-species.csv corpus/descriptions.csv
+  deps:
+    - path: assets/cindys-species.csv
+      md5: 433120e0c057abb871ebbaae81e2803a
+  outs:
+    - path: corpus/descriptions.csv
+      md5: b735c5159f9f5f06ced446dca4e48686
+  spacy_version: 3.3.0
+  spacy_git_version: 497a708c7
+preprocess:
+  cmd: python -m spacy run preprocess
+  script:
+    - python scripts/preprocess.py corpus/descriptions.csv corpus/preprocessed-descriptions.csv
+  deps:
+    - path: corpus/descriptions.csv
+      md5: b735c5159f9f5f06ced446dca4e48686
+  outs:
+    - path: corpus/preprocessed-descriptions.csv
+      md5: ac6ee58cb9543db68a37cd7c3672accb
+  spacy_version: 3.3.0
+  spacy_git_version: 497a708c7
+pipeline:
+  cmd: python -m spacy run pipeline
+  script:
+    - python scripts/pipeline.py corpus/preprocessed-descriptions.csv corpus/traits
+  deps:
+    - path: corpus/preprocessed-descriptions.csv
+      md5: 1dadf3d4dee2e1ac598557130398a07d
+  outs:
+    - path: corpus/traits/*
+      md5: null
+  spacy_version: 3.3.0
+  spacy_git_version: 497a708c7
+anatomy:
+  cmd: python -m spacy run anatomy
+  script:
+    - python scripts/anatomy.py assets/anatomical-parts.yml corpus/anatomy.jsonl
+  deps:
+    - path: assets/anatomical-parts.yml
+      md5: e4ba532bac3b55ec80497b44a6a108ad
+  outs:
+    - path: corpus/anatomy.jsonl
+      md5: 65877ea7e4aa2cf3e8d5f5667ff9103e
+  spacy_version: 3.3.0
+  spacy_git_version: 497a708c7
+numeric:
+  cmd: python -m spacy run numeric
+  script:
+    - python scripts/numeric.py corpus/preprocessed-descriptions.csv corpus/numeric_train.spacy
+      corpus/numeric_test.spacy
+  deps:
+    - path: corpus/preprocessed-descriptions.csv
+      md5: 9b3e40c9437cb8ca8fe9720bf111c0dc
+  outs: []
+  spacy_version: 3.2.4
+  spacy_git_version: b50fe5ec6
+train:
+  cmd: python -m spacy run train
+  script:
+    - python -m spacy train configs/config.cfg --output training --paths.train corpus/numeric_train.spacy
+      --paths.dev corpus/numeric_test.spacy --gpu-id -1
+  deps:
+    - path: corpus/numeric_train.spacy
+      md5: 91700b35ad8cb0b56b2e1e93eb39e1f7
+    - path: corpus/numeric_test.spacy
+      md5: aab10bbd05cb668c34ca81b9d6bc7413
+  outs: []
+  spacy_version: 3.2.4
+  spacy_git_version: b50fe5ec6
+trait-patterns:
+  cmd: python -m spacy run trait-patterns
+  script:
+    - python scripts/trait_patterns.py corpus/traits.jsonl
+  deps: []
+  outs:
+    - path: corpus/traits.jsonl
+      md5: 8343015118068c07adf4c76fc0c03a2e
+  spacy_version: 3.3.0
+  spacy_git_version: 497a708c7

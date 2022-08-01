@@ -1,0 +1,346 @@
+angiosperm:
+- accdb_name: life cycle
+  name: life form
+  type: DISCRETE
+- name: habitat
+  type: DISCRETE
+- name: habit
+  type: DISCRETE
+- name: clonality
+  type: DISCRETE
+- name: perennial organ
+  type: DISCRETE
+- name: plant min. height [m]
+  type: DIMENSION
+  part: plant
+- name: plant max. height [m]
+  type: DIMENSION
+  part: plant
+- name: indumentum
+  type: DISCRETE
+- name: spinescence
+  type: DISCRETE
+- name: succulence
+  type: DISCRETE
+- name: leaf arrangement
+  part: leaf
+  type: DISCRETE
+- name: leaf architecture
+  part: leaf
+  type: DISCRETE
+- name: leaf position
+  part: leaf
+  type: DISCRETE
+- name: leaf shape
+  part: leaf
+  type: DISCRETE
+- name: leaf apex
+  part: leaf
+  type: DISCRETE
+- name: leaf base
+  part: leaf
+  type: DISCRETE
+- name: leaf margin
+  part: leaf
+  type: DISCRETE
+- name: leaf min. width [cm]
+  part: leaf
+  type: DIMENSION
+- name: leaf max. width [cm]
+  part: leaf
+  type: DIMENSION
+- name: leaf min. length [cm]
+  part: leaf
+  type: DIMENSION
+- name: leaf max. length [cm]
+  part: leaf
+  type: DIMENSION
+- name: inflorescence arrangement
+  part: inflorescence
+  type: DISCRETE
+- name: flower sex
+  part: flower
+  type: DISCRETE
+- name: flower architecture
+  part: flower
+  type: DISCRETE
+- name: flower merosity
+  part: flower
+  type: DISCRETE
+- name: flower symmetry
+  part: flower
+  type: DISCRETE
+- name: flower shape
+  part: flower
+  type: DISCRETE
+- name: flower colour
+  part: flower
+  type: COLOUR
+- name: petal fusion
+  part: petal
+  type: DISCRETE
+- name: petal colour
+  part: petal
+  type: COLOUR
+- name: petal min. width [cm]
+  part: petal
+  type: DIMENSION
+- name: petal max. width [cm]
+  part: petal
+  type: DIMENSION
+- name: reproduction architecture
+  type: DISCRETE
+- name: reproduction system
+  part: stem
+  type: DISCRETE
+- name: stamen number
+  part: stamen
+  type: NUMERIC
+  require_part: 0
+- name: stamen arrangement
+  part: stamen
+  type: DISCRETE
+- name: carpel/ovary number
+  part: carpel/ovary
+  type: NUMERIC
+  require_part: 0
+- name: gynoecium arrangement
+  part: gynoecium
+  type: DISCRETE
+- name: heterostyly
+  type: DISCRETE
+- name: pollination
+  type: DISCRETE
+- name: fruit type
+  part: fruit
+  type: DISCRETE
+- name: fruit structure
+  part: fruit
+  type: DISCRETE
+- name: fruit dehiscence
+  part: fruit
+  type: DISCRETE
+- name: fruit shape
+  part: fruit
+  type: DISCRETE
+- name: fruit colour
+  part: fruit
+  type: COLOUR
+- name: dispersule min. width [cm]
+  part: dispersule
+  type: DIMENSION
+- name: dispersule max. width [cm]
+  part: dispersule
+  type: DIMENSION
+- name: dispersule min. length [cm]
+  part: dispersule
+  type: DIMENSION
+- name: dispersule max. length [cm]
+  part: dispersule
+  type: DIMENSION
+- name: seed colour
+  part: seed
+  type: COLOUR
+- name: seeds per fruit max.
+  part: seed
+  type: NUMERIC
+- name: seeds per fruit min.
+  part: seed
+  type: NUMERIC
+- name: seed min. width [mm]
+  part: seed
+  type: DIMENSION
+- name: seed max. width [mm]
+  part: seed
+  type: DIMENSION
+- name: seed min. length [mm]
+  part: seed
+  type: DIMENSION
+- name: seed max. length [mm]
+  part: seed
+  type: DIMENSION
+- name: dispersal mode
+  type: DISCRETE
+- name: dispersion axillary
+  type: DISCRETE
+- name: ploidy level (2n)
+  type: NUMERIC
+  require_part: 0
+- name: seed min. volume
+  part: seed
+  type: NUMERIC
+- name: seed max. volume
+  part: seed
+  type: NUMERIC
+- name: root min. depth [cm]
+  type: DIMENSION
+- name: root max. depth [cm]
+  type: DIMENSION
+bryophyte:
+- name: clonality
+  type: DISCRETE
+- name: habit
+  type: DISCRETE
+- name: architecture
+  type: DISCRETE
+- name: habitat
+  type: DISCRETE
+- name: epiphyte location
+  type: DISCRETE
+- name: life-strategy
+  type: DISCRETE
+- name: reproduction system
+  part: stem
+  type: DISCRETE
+- name: plant min. height [cm]
+  type: DIMENSION
+- name: plant max. height [cm]
+  type: DIMENSION
+- name: plant size category
+  type: DISCRETE
+- name: leaf orientation
+  part: leaf
+  type: DISCRETE
+- name: transverse cross-section
+  type: DISCRETE
+- name: longitudinal orientation
+  type: DISCRETE
+- name: leaf apex
+  part: leaf
+  type: DISCRETE
+- name: leaf surface
+  part: leaf
+  type: DISCRETE
+- name: papillosity
+  type: DISCRETE
+- name: lamina thic+o1++p1:q1
+  part: lamina
+  type: NUMERIC
+- name: leaf margin denticulation
+  part: leaf
+  type: DISCRETE
+- name: leaf margin curvature
+  part: leaf
+  type: DISCRETE
+- name: underleaves
+  type: DISCRETE
+- name: specialised structures
+  type: DISCRETE
+- name: oil bodies
+  type: DISCRETE
+- name: trigones
+  type: DISCRETE
+- name: vegetative propagules
+  type: DISCRETE
+- name: vegetative propagule type
+  type: DISCRETE
+- name: spore min. diameter [μm]
+  part: spore
+  type: DIMENSION
+- name: spore max. diameter [μm]
+  part: spore
+  type: DIMENSION
+- name: spore surface
+  part: spore
+  type: DISCRETE
+- name: seta min. length [mm]
+  part: seta
+  type: DIMENSION
+- name: seta max. length [mm]
+  part: seta
+  type: DIMENSION
+- name: capsule min. height [mm]
+  part: capsule
+  type: DIMENSION
+- name: capsule max. width [mm]
+  part: capsule
+  type: DIMENSION
+- name: capsule orientation
+  part: capsule
+  type: DISCRETE
+- name: capsule shape
+  part: capsule
+  type: DISCRETE
+- name: stomata
+  type: DISCRETE
+- name: peristome
+  type: DISCRETE
+- name: ploidy level (2n)
+  type: NUMERIC
+pteridophyte:
+- name: clonality
+  type: DISCRETE
+- name: habit
+  type: DISCRETE
+- name: habitat
+  type: DISCRETE
+- name: plant min. height [m]
+  type: DIMENSION
+- name: plant max. height [m]
+  type: DIMENSION
+- name: reproduction system
+  part: stem
+  type: DISCRETE
+- name: ploidy level (2n)
+  type: NUMERIC
+- name: fertile fronds
+  type: DISCRETE
+- name: leaf function
+  part: leaf
+  type: DISCRETE
+- name: leaf architecture
+  part: leaf
+  type: DISCRETE
+- name: leaf margin
+  part: leaf
+  type: DISCRETE
+- name: no. vascular strands
+  type: NUMERIC
+- name: venation
+  type: DISCRETE
+- name: leaf min. width [cm]
+  part: leaf
+  type: DIMENSION
+- name: leaf max. width [cm]
+  part: leaf
+  type: DIMENSION
+- name: leaf min. length [cm]
+  part: leaf
+  type: DIMENSION
+- name: leaf max. length [cm]
+  part: leaf
+  type: DIMENSION
+- name: spinescence
+  type: DISCRETE
+- name: stem pubescence
+  part: stem
+  type: DISCRETE
+- name: leaf pubescence
+  part: leaf
+  type: DISCRETE
+- name: indumentum
+  type: DISCRETE
+- name: lamina thickness
+  part: lamina
+  type: NUMERIC
+- name: scales
+  type: DISCRETE
+- name: no. sori per leaf
+  part: leaf
+  type: NUMERIC
+- name: indusium
+  type: DISCRETE
+- name: no. sporangia per sorus
+  type: NUMERIC
+- name: spore shape
+  part: spore
+  type: DISCRETE
+- name: spore min. diameter [μm]
+  part: spore
+  type: DIMENSION
+- name: spore max. diameter [μm]
+  part: spore
+  type: DIMENSION
+- name: spore surface
+  part: spore
+  type: DISCRETE
