@@ -2,8 +2,8 @@ import requests
 import requests_cache
 from bs4 import BeautifulSoup
 
-from adept.config import CACHE_DIR, logger
-from adept.utils.request import CachedRequest
+from traits.config import CACHE_DIR, logger
+from traits.utils.request import CachedRequest
 
 
 

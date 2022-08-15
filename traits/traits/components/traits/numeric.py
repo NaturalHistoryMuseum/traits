@@ -5,7 +5,7 @@ from spacy.tokens import Span, Token
 from spacy import displacy
 from spacy.util import filter_spans
 
-from adept.components.base import BaseComponent
+from traits.components.base import BaseComponent
 
 class NumericTraitsEntity(BaseComponent):
     

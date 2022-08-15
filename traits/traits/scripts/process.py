@@ -8,21 +8,21 @@ import warnings
 import yaml
 import itertools
 
-from adept.components.registry import ComponentsRegistry
-from adept.components.sentencizer import Sentencizer
-from adept.components.numeric import (NumericDimension, NumericExpand, NumericFraction, NumericMeasurement, NumericRange)
-from adept.components.anatomical import AnatomicalEntity
-from adept.components.traits import (CustomTraitsEntity, DiscreteTraitsEntity, NumericTraitsEntity)
-from adept.scripts.helpers import get_descriptions
+from traits.components.registry import ComponentsRegistry
+from traits.components.sentencizer import Sentencizer
+from traits.components.numeric import (NumericDimension, NumericExpand, NumericFraction, NumericMeasurement, NumericRange)
+from traits.components.anatomical import AnatomicalEntity
+from traits.components.traits import (CustomTraitsEntity, DiscreteTraitsEntity, NumericTraitsEntity)
+from traits.scripts.helpers import get_descriptions
 
-from adept.postprocess.fields.factory import FieldFactory
-from adept.postprocess.fields.discrete import DiscreteField
-from adept.postprocess.aggregator import Aggregator
-from adept.traits.accdb import ACCDBTraits
+from traits.postprocess.fields.factory import FieldFactory
+from traits.postprocess.fields.discrete import DiscreteField
+from traits.postprocess.aggregator import Aggregator
+from traits.sources.accdb import ACCDBTraits
     
-from adept.utils.doc_log import DocLog
-from adept.config import logger, RAW_DATA_DIR, CORPUS_DIR
-from adept.utils.helpers import get_variety_higher_taxa
+from traits.utils.doc_log import DocLog
+from traits.config import logger, RAW_DATA_DIR, CORPUS_DIR
+from traits.utils.helpers import get_variety_higher_taxa
 
 
 def pipeline(input_path: Path, output_dir: Path, limit: int = None, taxon_group: str = None):

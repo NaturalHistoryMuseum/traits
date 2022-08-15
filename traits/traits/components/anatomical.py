@@ -9,9 +9,9 @@ from spacy import displacy
 from spacy.pipeline import EntityRuler
 from pathlib import Path
 
-from adept.components.base import BaseComponent
+from .base import BaseComponent
 # from adept.components.ner.traits import TraitsNER
-from adept.config import CORPUS_DIR, spacy_config
+from traits.config import CORPUS_DIR, spacy_config
 
 
 class AnatomicalEntity(EntityRuler, BaseComponent):

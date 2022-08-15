@@ -2,7 +2,7 @@ import typer
 import pandas as pd
 from pathlib import Path
 
-from adept.preprocess import preprocessors
+from traits.preprocess import preprocessors
 
 
 def preprocess(input_path: Path, output_path: Path):

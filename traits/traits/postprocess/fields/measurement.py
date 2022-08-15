@@ -2,8 +2,8 @@ import re
 from spacy.tokens import Span, Doc
 
 
-from adept.postprocess.fields.field import Field
-from adept.config import unit_registry
+from .field import Field
+from traits.config import unit_registry
 
 class MeasurementField(Field):
     

@@ -12,8 +12,8 @@ from spacy import displacy
 from spacy.util import filter_spans
 
 
-from adept.components.base import BaseComponent
-from adept.utils.expand import ExpandSpan
+from traits.components.base import BaseComponent
+from traits.utils.expand import ExpandSpan
 
 
 

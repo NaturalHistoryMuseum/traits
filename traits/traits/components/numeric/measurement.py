@@ -3,8 +3,8 @@ from spacy.tokens import Span, Token
 from spacy.util import filter_spans
 from pint.errors import UndefinedUnitError
 
-from adept.components.base import BaseComponent
-from adept.config import unit_registry, logger
+from traits.components.base import BaseComponent
+from traits.config import unit_registry, logger
 
 class NumericMeasurement(BaseComponent):
     

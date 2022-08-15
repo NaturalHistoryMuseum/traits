@@ -3,11 +3,11 @@ import re
 import requests
 import urllib
 
-from adept.descriptions.description import DescriptionSource
-from adept.config import CACHE_DIR
-from adept.config import logger
-from adept.utils.soup import Soup, RequestSoup
-from adept.utils.request import CachedRequest
+from traits.sources.descriptions.description import DescriptionSource
+from traits.config import CACHE_DIR
+from traits.config import logger
+from traits.utils.soup import Soup, RequestSoup
+from traits.utils.request import CachedRequest
 
 class EcofloraDescriptionSource(DescriptionSource):
     

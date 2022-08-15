@@ -3,9 +3,9 @@ from tokenize import Token
 from spacy.matcher import Matcher
 from spacy.tokens import Span
 
-from adept.components.base import BaseComponent
-from adept.components.helpers import token_get_ent
-from adept.config import logger
+from traits.components.base import BaseComponent
+from traits.components.helpers import token_get_ent
+from traits.config import logger
 
 class NumericRange(BaseComponent): 
     

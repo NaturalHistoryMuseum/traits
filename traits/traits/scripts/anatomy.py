@@ -3,7 +3,7 @@ import yaml
 import typer
 from pathlib import Path
 
-from adept.utils.patterns import Patterns
+from traits.utils.patterns import Patterns
 
  
     

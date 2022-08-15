@@ -1,8 +1,8 @@
 from asyncio.log import logger
 from spacy import displacy
-from adept.config import LOG_DIR
+from traits.config import LOG_DIR
 
-from adept.config import logger
+from traits.config import logger
 
 class DocLog():
     

@@ -24,13 +24,13 @@ CACHE_DIR.mkdir(parents=True, exist_ok=True)
 LOG_DIR = Path(ROOT_DIR / '.log')
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-ADEPT_DIR = Path(ROOT_DIR / 'adept')
+TRAITS_DIR = Path(ROOT_DIR / 'traits')
 
 
-ASSETS_DIR = Path(ADEPT_DIR / 'assets')
-CORPUS_DIR = Path(ADEPT_DIR / 'corpus')
+ASSETS_DIR = Path(TRAITS_DIR / 'assets')
+CORPUS_DIR = Path(TRAITS_DIR / 'corpus')
 
-spacy_config = yaml.safe_load((ADEPT_DIR / 'project.yml').open()).get('vars', {})
+spacy_config = yaml.safe_load((TRAITS_DIR / 'project.yml').open()).get('vars', {})
 app_config = toml.load(ROOT_DIR / 'pyproject.toml')
 
 

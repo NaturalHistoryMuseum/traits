@@ -1,7 +1,7 @@
 from pathlib import Path
 import yaml
 
-from adept.config import ASSETS_DIR, spacy_config
+from traits.config import ASSETS_DIR, spacy_config
 
 
 class Field():  

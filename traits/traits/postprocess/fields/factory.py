@@ -1,8 +1,8 @@
-from adept.postprocess.fields.colour import ColourField
-from adept.postprocess.fields.discrete import DiscreteField
-from adept.postprocess.fields.measurement import MeasurementField
-from adept.postprocess.fields.numeric import NumericField
-from adept.postprocess.fields.volume import VolumeField
+from .colour import ColourField
+from .discrete import DiscreteField
+from .measurement import MeasurementField
+from .numeric import NumericField
+from .volume import VolumeField
 
 
 class FieldFactory(object):

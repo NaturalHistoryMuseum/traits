@@ -1,7 +1,7 @@
 
 # from itertools import chain
 
-from adept.components.base import BaseComponent
+from .base import BaseComponent
 
 class Sentencizer(BaseComponent):
     

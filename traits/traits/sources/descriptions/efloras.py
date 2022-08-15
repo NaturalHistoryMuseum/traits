@@ -4,12 +4,12 @@ import urllib.parse
 import re
 from abc import ABCMeta, abstractmethod, ABC
 
-from adept.traits.accdb import ACCDBTraits
-from adept.utils.enum import Enum
-from adept.utils.soup import Soup, RequestSoup
-from adept.utils.request import CachedRequest
-from adept.config import logger
-from adept.descriptions.description import DescriptionSource
+from traits.sources.accdb import ACCDBTraits
+from traits.utils.enum import Enum
+from traits.utils.soup import Soup, RequestSoup
+from traits.utils.request import CachedRequest
+from traits.config import logger
+from traits.sources.descriptions.description import DescriptionSource
 
 
 class EflorasDescriptionSource(DescriptionSource):

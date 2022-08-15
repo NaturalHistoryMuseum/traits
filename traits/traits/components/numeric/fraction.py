@@ -6,7 +6,7 @@ from spacy.matcher import Matcher
 from spacy.tokens import Token
 
 
-from adept.components.base import BaseComponent
+from traits.components.base import BaseComponent
 
 
 class NumericFraction(BaseComponent):

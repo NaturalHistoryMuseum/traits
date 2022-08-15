@@ -3,7 +3,7 @@ from requests_cache import CachedSession
 import http.client
 
 
-from adept.config import CACHE_DIR
+from traits.config import CACHE_DIR
 
 # https://stackoverflow.com/questions/62599036/python-requests-is-slow-and-takes-very-long-to-complete-http-or-https-request
 http.client.HTTPConnection.debuglevel = 1

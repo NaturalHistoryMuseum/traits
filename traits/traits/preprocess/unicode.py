@@ -1,6 +1,6 @@
 from unidecode import unidecode
 
-from adept.preprocess.preprocessor import Preprocessor
+from traits.preprocess.preprocessor import Preprocessor
 
 
 class UnicodePreproccessor(Preprocessor):

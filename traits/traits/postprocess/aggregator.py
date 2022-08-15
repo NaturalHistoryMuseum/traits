@@ -2,7 +2,7 @@ import itertools
 import statistics
 import pandas as pd
 
-from adept.config import unit_registry
+from traits.config import unit_registry
 
 class Aggregator():
     

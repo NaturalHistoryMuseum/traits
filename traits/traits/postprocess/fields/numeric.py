@@ -1,4 +1,4 @@
-from adept.postprocess.fields.field import Field
+from .field import Field
 
 class NumericField(Field):
     

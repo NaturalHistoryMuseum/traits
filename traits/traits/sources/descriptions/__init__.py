@@ -4,7 +4,7 @@ from .wikipedia import WikipediaDescriptionSource
 from .efloras import *
 
 
-sources = [
+description_sources = [
     EflorasNorthAmericaDescriptionSource(),
     EflorasChinaDescriptionSource(),
     EflorasMossChinaDescriptionSource(),

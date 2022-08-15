@@ -1,6 +1,6 @@
 import re
 
-from adept.preprocess.preprocessor import Preprocessor
+from traits.preprocess.preprocessor import Preprocessor
 
 
 class ConjoinedPreproccessor(Preprocessor):

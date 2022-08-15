@@ -2,8 +2,8 @@ from spacy.matcher import Matcher
 from spacy.tokens import Span, Token
 from spacy.util import filter_spans
 
-from adept.components.base import BaseComponent
-from adept.components.helpers import token_get_ent
+from traits.components.base import BaseComponent
+from traits.components.helpers import token_get_ent
 
 class NumericDimension(BaseComponent):
     

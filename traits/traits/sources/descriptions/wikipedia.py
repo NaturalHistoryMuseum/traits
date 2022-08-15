@@ -1,8 +1,8 @@
 import requests
 
-from adept.descriptions.description import DescriptionSource
-from adept.utils.soup import Soup, RequestSoup
-from adept.utils.request import CachedRequest
+from traits.sources.descriptions.description import DescriptionSource
+from traits.utils.soup import Soup, RequestSoup
+from traits.utils.request import CachedRequest
 
 class WikipediaDescriptionSource(DescriptionSource):
     

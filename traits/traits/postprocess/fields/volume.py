@@ -1,4 +1,4 @@
-from adept.postprocess.fields.measurement import MeasurementField
+from .measurement import MeasurementField
 
 from spacy.tokens import Span, Doc
 

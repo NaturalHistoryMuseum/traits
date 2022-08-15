@@ -10,7 +10,7 @@ import itertools
 
 # FIXME: This is all much better as a dataframe
 
-from adept.config import RAW_DATA_DIR
+from traits.config import RAW_DATA_DIR
 
 class ACCDBTraits():
     """ 
@@ -58,7 +58,8 @@ class ACCDBTraits():
         gymnosperm_df = df[df[self.plants_group_col] == 'angiosperms'].copy()
         gymnosperm_df[self.plants_group_col] = 'gymnosperm'  
         
-        df.append(gymnosperm_df, ignore_index=True)
+        # df.append(gymnosperm_df, ignore_index=True)
+        df = pd.concat([df, gymnosperm_df])
         df = df.rename(columns={"Trait 4": "trait4"}) 
                 
         df['uuid'] = df.apply(lambda _: uuid.uuid4(), axis=1)
@@ -87,9 +88,8 @@ class ACCDBTraits():
         # }])
         
         excel_terms = self._get_excel_terms_df()
-
         df = df.append(excel_terms, ignore_index=True)
-   
+
         return df       
         
     

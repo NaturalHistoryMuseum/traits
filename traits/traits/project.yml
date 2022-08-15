@@ -11,7 +11,7 @@ vars:
   vectors_model: "en_core_web_trf"
   config: "config.cfg"
   file:
-    species_list: "cindys-species.csv"
+    species_list: "zingiberaceae-genera.csv"
     # species_list: "test.csv"
     anatomical_parts: "anatomical-parts.yml"
     trait_patterns: "traits.jsonl"
@@ -46,7 +46,7 @@ workflows:
   pipeline:
    - descriptions
    - preprocess
-   - traits
+   - process
 
 commands:
   - name: "download"
@@ -97,10 +97,10 @@ commands:
     # outputs:
     #   - "corpus/${vars.file.numeric}"      
 
-  - name: traits
+  - name: process
     help: "Run NER traits extraction"
     script:
-      - "python scripts/traits.py corpus/${vars.file.preprocessed} corpus/${vars.file.traits_output_directory}" 
+      - "python scripts/process.py corpus/${vars.file.preprocessed} corpus/${vars.file.traits_output_directory}" 
     deps:
       - "corpus/${vars.file.preprocessed}"          
     outputs:

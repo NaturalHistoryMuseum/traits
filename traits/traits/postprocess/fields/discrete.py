@@ -1,6 +1,6 @@
 import pandas as pd
 
-from adept.postprocess.fields.field import Field
+from .field import Field
 
 class DiscreteField(Field):
         

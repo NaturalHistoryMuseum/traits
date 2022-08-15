@@ -4,8 +4,8 @@ import numpy as np
 import typer
 from pathlib import Path
 
-from adept.descriptions import sources
-from adept.utils.helpers import get_variety_higher_taxa
+from traits.sources.descriptions import description_sources
+from traits.utils.helpers import get_variety_higher_taxa
     
 # @click.command()
 # @click.argument('output_path', type=click.Path())
@@ -21,9 +21,11 @@ def main(taxa_path: Path, output_path: Path):
     var_species = df[df['Species name'].str.contains('var\.|subsp\.')].loc[:]
     var_species['Species name'] = var_species['Species name'].apply(get_variety_higher_taxa)
     
-    df = df.append(var_species).drop_duplicates()    
+    # df = df.append(var_species).drop_duplicates()    
     
-    for source in sources:   
+    df = pd.concat([df, var_species]).drop_duplicates()
+    
+    for source in description_sources:   
         df[source.name] = df[taxon_name_col].apply(source.get_taxon_description)
     
     df = df.rename(
@@ -37,11 +39,11 @@ def main(taxa_path: Path, output_path: Path):
     df.to_csv(output_path, index=False, encoding='utf-8-sig')
 
     # Output some nice stats
-    source_names = [source.name for source in sources]
+    source_names = [source.name for source in description_sources]
     
     df['any'] = ~pd.isnull(df[source_names]).all(1)
 
-    df.replace(to_replace=False, value=np.NAN, inplace=True, method=None) 
+    df.replace(to_replace=False, value=np.NAN, inplace=True) 
 
     print(df[source_names + ['taxon', 'group', 'any']].groupby('group').count())   
     

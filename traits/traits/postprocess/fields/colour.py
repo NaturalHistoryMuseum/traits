@@ -1,4 +1,4 @@
-from adept.postprocess.fields.field import Field
+from .field import Field
 
 class ColourField(Field):  
     def __init__(self, doc, name, part=None, require_part=True):

@@ -9,8 +9,8 @@ from spacy import displacy
 from spacy.pipeline import EntityRuler
 from pathlib import Path
 
-from adept.components.base import BaseComponent
-from adept.config import CORPUS_DIR, spacy_config
+from traits.components.base import BaseComponent
+from traits.config import CORPUS_DIR, spacy_config
 
 
 class DiscreteTraitsEntity(EntityRuler, BaseComponent):
